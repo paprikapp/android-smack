@@ -1,1 +1,1 @@
-include ':sample', ':login'
+include ':sample', ':login', ':soup'
