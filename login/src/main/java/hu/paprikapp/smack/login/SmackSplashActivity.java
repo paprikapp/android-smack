@@ -1,13 +1,13 @@
 package hu.paprikapp.smack.login;
 
-import android.app.Activity;
 import android.app.Application;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 
 /**
  * @author Balázs Varga
  */
-public abstract class SmackSplashActivity extends Activity {
+public abstract class SmackSplashActivity extends ActionBarActivity {
 
     private static final double DEFAULT_SPLASH_DELAY_MS = 2.5 * 1000;
 
@@ -45,7 +45,10 @@ public abstract class SmackSplashActivity extends Activity {
      *
      * @param app
      */
-    protected abstract void doStuffInBackground(Application app);
+    protected void doStuffInBackground(Application app)
+    {
+        // Hook
+    }
 
     /**
      *
