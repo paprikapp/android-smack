@@ -3,7 +3,9 @@ package hu.paprikapp.smack.login;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 
-
+/**
+ * @author Balazs Varga
+ */
 public class SmackLoginActivity extends ActionBarActivity {
 
     @Override
