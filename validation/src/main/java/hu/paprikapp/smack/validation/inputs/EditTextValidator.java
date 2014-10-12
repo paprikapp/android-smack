@@ -46,11 +46,11 @@ public class EditTextValidator  extends SmackAbstractInputValidator implements T
 
     @Override
     public void showError(String message) {
-
+        mEditText.setError(message);
     }
 
     @Override
     public void hideError() {
-
+        mEditText.setError(null);
     }
 }
