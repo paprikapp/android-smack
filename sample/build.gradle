@@ -21,14 +21,13 @@ android {
     buildToolsVersion "20.0.0"
 
     defaultConfig {
-        applicationId "hu.paprikapp.android.smack"
         minSdkVersion 8
         targetSdkVersion 20
         versionName VERSION_NAME
     }
     buildTypes {
         release {
-            runProguard false
+            minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
