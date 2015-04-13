@@ -120,7 +120,7 @@ public class SmackFont {
     private static void setTypeface(@NonNull TextView textView, @NonNull Typeface typeface) {
         textView.setTypeface(typeface);
         //For making the font anti-aliased.
-        textView.setPaintFlags(textView.getPaintFlags() | Paint.SUBPIXEL_TEXT_FLAG);
+         textView.setPaintFlags(textView.getPaintFlags() | Paint.SUBPIXEL_TEXT_FLAG);
     }
 
     private static void setTypeface(@NonNull ViewGroup viewGroup, @NonNull Typeface typeface) {
