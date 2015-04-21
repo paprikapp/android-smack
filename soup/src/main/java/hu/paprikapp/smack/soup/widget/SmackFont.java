@@ -97,9 +97,8 @@ public class SmackFont {
         TypedArray typedArray = mContext
                 .obtainStyledAttributes(attrs, R.styleable.SmackView, 0, 0);
 
-        String fontFamily = null;
         try {
-            fontFamily = typedArray.getString(R.styleable.SmackView_font);
+            String fontFamily = typedArray.getString(R.styleable.SmackView_font);
             if (fontFamily != null) {
                 set(fontFamily);
             }

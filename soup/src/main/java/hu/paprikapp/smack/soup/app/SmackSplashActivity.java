@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package hu.paprikapp.smack.login;
+package hu.paprikapp.smack.soup.app;
 
 import android.app.Activity;
 import android.app.Application;

@@ -8,22 +8,23 @@ import android.support.annotation.NonNull;
 /**
  * Created by warnyul on 29/08/14.
  */
-public final class ConnectionUtils {
+public final class Net {
 
-    private static Context mContext;
+    private static ConnectivityManager connectivityManager;
 
-    private ConnectionUtils() {
+    private Net() {
     }
 
     public static void init(@NonNull Context context) {
-        mContext = context.getApplicationContext();
+        connectivityManager = (ConnectivityManager)context.getSystemService(Context.CONNECTIVITY_SERVICE);
+    }
+
+    public static boolean isNotConnected() {
+        return !isConnected();
     }
 
     public static boolean isConnected() {
-        ConnectivityManager cm =
-                (ConnectivityManager)mContext.getSystemService(Context.CONNECTIVITY_SERVICE);
-
-        NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
+        NetworkInfo activeNetwork = connectivityManager.getActiveNetworkInfo();
         boolean isConnected = activeNetwork != null &&
                 activeNetwork.isConnected();
         return isConnected;

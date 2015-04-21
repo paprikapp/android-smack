@@ -6,8 +6,6 @@ import android.support.annotation.Nullable;
 import android.support.v7.widget.SearchView;
 import android.util.AttributeSet;
 
-import hu.paprikapp.smack.soup.widget.SmackFont;
-
 /**
  * @author Balazs Varga
  */

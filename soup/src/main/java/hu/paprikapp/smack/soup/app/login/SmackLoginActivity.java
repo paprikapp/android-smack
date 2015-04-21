@@ -13,19 +13,26 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package hu.paprikapp.smack.login;
+package hu.paprikapp.smack.soup.app.login;
 
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
+import android.support.v4.app.Fragment;
+
+import hu.paprikapp.smack.soup.R;
+import hu.paprikapp.smack.soup.app.SmackFragmentActivity;
 
 /**
  * @author Balazs Varga
  */
-public class SmackLoginActivity extends ActionBarActivity {
+public class SmackLoginActivity extends SmackFragmentActivity implements SmackLoginCallback {
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_smack_login);
+    public void loginSuccess(SmackUser user) {
+        // Hook method.
+    }
+
+    @Override
+    public void loginFailed(Exception error) {
+        // Hook method.
     }
 }

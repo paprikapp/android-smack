@@ -14,4 +14,8 @@
     See the License for the specific language governing permissions and
     limitations under the License. -->
 <resources>
+    <string name="need_internet_connection_dialog_title">The application needs Internet connection. Do you want to turn it on?</string>
+    <string name="need_internet_connection_dialog_negative_button">No</string>
+    <string name="need_internet_connection_dialog_settings_button">Settings</string>
+    <string name="facebook_button_title">Login with FB</string>
 </resources>
