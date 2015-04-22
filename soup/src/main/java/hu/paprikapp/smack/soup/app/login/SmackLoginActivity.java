@@ -27,12 +27,17 @@ import hu.paprikapp.smack.soup.app.SmackFragmentActivity;
 public class SmackLoginActivity extends SmackFragmentActivity implements SmackLoginCallback {
 
     @Override
-    public void loginSuccess(SmackUser user) {
+    public void success(SmackUser user) {
         // Hook method.
     }
 
     @Override
-    public void loginFailed(Exception error) {
+    public void failed(Exception error) {
+        // Hook method.
+    }
+
+    @Override
+    public void canceled() {
         // Hook method.
     }
 }

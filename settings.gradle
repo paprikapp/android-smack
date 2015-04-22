@@ -13,4 +13,4 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-include ':sample', ':login', ':soup', ':validation'
+include ':sample', ':parse-login', ':soup', ':validation'

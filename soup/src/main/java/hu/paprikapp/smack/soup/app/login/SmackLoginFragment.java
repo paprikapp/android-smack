@@ -91,16 +91,23 @@ public class SmackLoginFragment extends SmackFragment implements SmackLoginCallb
     }
 
     @Override
-    public void loginSuccess(SmackUser user) {
+    public void success(SmackUser user) {
         if (loginCallback != null) {
-            loginCallback.loginSuccess(user);
+            loginCallback.success(user);
         }
     }
 
     @Override
-    public void loginFailed(Exception error) {
+    public void failed(Exception error) {
         if (loginCallback != null) {
-            loginCallback.loginFailed(error);
+            loginCallback.failed(error);
+        }
+    }
+
+    @Override
+    public void canceled() {
+        if (loginCallback != null) {
+            loginCallback.canceled();
         }
     }
 }

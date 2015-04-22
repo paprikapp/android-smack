@@ -23,7 +23,7 @@ android {
     defaultConfig {
         minSdkVersion 8
         targetSdkVersion 22
-        versionName VERSION_NAME
+        versionName SMACK_VERSION_NAME
     }
     buildTypes {
         release {
@@ -36,7 +36,7 @@ android {
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile 'com.android.support:appcompat-v7:22.0.0'
-    compile project(':login')
+    compile project(':parse-login')
     compile project(':soup')
     compile project(':validation')
 }

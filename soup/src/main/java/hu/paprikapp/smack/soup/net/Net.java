@@ -25,8 +25,7 @@ public final class Net {
 
     public static boolean isConnected() {
         NetworkInfo activeNetwork = connectivityManager.getActiveNetworkInfo();
-        boolean isConnected = activeNetwork != null &&
+        return activeNetwork != null &&
                 activeNetwork.isConnected();
-        return isConnected;
     }
 }

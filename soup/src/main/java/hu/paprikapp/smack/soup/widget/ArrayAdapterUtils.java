@@ -30,6 +30,7 @@ public final class ArrayAdapterUtils {
     }
 
     @TargetApi(Build.VERSION_CODES.HONEYCOMB)
+    @SafeVarargs
     public static <T> void addAll(@NonNull ArrayAdapter<T> adapter, @Nullable T... items) {
         if (items == null)
             return;

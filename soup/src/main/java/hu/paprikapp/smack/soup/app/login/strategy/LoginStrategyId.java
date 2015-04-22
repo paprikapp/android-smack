@@ -37,6 +37,7 @@ public class LoginStrategyId {
     }
 
     public static class Ids {
+        public static final LoginStrategyId EMAIL = new LoginStrategyId("EMAIL");
         public static final LoginStrategyId FACEBOOK = new LoginStrategyId("FACEBOOK");
     }
 }

@@ -8,19 +8,23 @@ import hu.paprikapp.smack.soup.app.login.SmackUser;
  */
 public class SimpleLoginStrategyCallback implements LoginStrategy.LoginStrategyCallback {
 
-    private SmackLoginCallback loginCallback;
+    private final SmackLoginCallback loginCallback;
 
     public SimpleLoginStrategyCallback(SmackLoginCallback loginCallback) {
         this.loginCallback = loginCallback;
     }
 
     @Override
-    public void success(SmackUser user, Exception e) {
+    public void done(SmackUser user, Exception e) {
         if (loginCallback != null) {
             if (e == null) {
-                loginCallback.loginSuccess(user);
+                if (user == null) {
+                    loginCallback.canceled();
+                } else {
+                    loginCallback.success(user);
+                }
             } else {
-                loginCallback.loginFailed(e);
+                loginCallback.failed(e);
             }
         }
     }

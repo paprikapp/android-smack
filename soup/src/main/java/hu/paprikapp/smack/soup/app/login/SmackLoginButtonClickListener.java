@@ -14,7 +14,7 @@ import hu.paprikapp.smack.soup.app.login.strategy.LoginStrategyId;
  * @author Balazs Varga
  */
 class SmackLoginButtonClickListener implements View.OnClickListener {
-    private WeakReference<SmackFragment> weakFragment;
+    private final WeakReference<SmackFragment> weakFragment;
     private final LoginStrategyId strategyId;
 
     public SmackLoginButtonClickListener(@NonNull SmackFragment fragment, LoginStrategyId strategyId) {

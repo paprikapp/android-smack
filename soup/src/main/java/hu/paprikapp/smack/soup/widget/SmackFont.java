@@ -43,17 +43,19 @@ public class SmackFont {
     /**
      * Map for fewer typeface allocation.
      */
-    private static final Map<String, Typeface> mCachedFonts = new HashMap<String, Typeface>();
+    private static final Map<String, Typeface> mCachedFonts = new HashMap<>();
 
-    private Context mContext;
     private View mView;
 
     /**
      * @param view
      */
     private SmackFont(@NonNull View view) {
-        mContext = view.getContext().getApplicationContext();
         mView = view;
+    }
+
+    private Context getContext() {
+        return mView.getContext();
     }
 
     /**
@@ -76,7 +78,7 @@ public class SmackFont {
      * @param resId
      */
     public void set(@StringRes int resId) {
-        set(mContext.getString(resId));
+        set(getContext().getString(resId));
     }
 
     /**
@@ -94,7 +96,7 @@ public class SmackFont {
         if (mView.isInEditMode())
             return;
 
-        TypedArray typedArray = mContext
+        TypedArray typedArray = getContext()
                 .obtainStyledAttributes(attrs, R.styleable.SmackView, 0, 0);
 
         try {
@@ -133,7 +135,7 @@ public class SmackFont {
 
         synchronized (mCachedFonts) {
 
-            AssetManager assetManager = mContext.getAssets();
+            AssetManager assetManager = getContext().getAssets();
 
             if (!mCachedFonts.containsKey(fontFamily)) {
                 Typeface typeface = Typeface.createFromAsset(assetManager, fontFileName(fontFamily));
@@ -144,10 +146,6 @@ public class SmackFont {
     }
 
     private static String fontFileName(String fontFamily) {
-        return new StringBuilder()
-                .append(fontFamily)
-                .append(".")
-                .append(FONT_EXTENSION)
-                .toString();
+        return fontFamily + "." + FONT_EXTENSION;
     }
 }

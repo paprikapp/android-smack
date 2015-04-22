@@ -11,8 +11,8 @@ import hu.paprikapp.smack.soup.app.login.SmackUser;
 public interface LoginStrategy {
 
     public static interface LoginStrategyCallback {
-        void success(SmackUser user, Exception e);
-    };
+        void done(SmackUser user, Exception e);
+    }
 
     void onActivityResult(int requestCode, int resultCode, Intent data);
 
