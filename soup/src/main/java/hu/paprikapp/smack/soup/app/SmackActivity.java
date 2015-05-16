@@ -6,14 +6,14 @@ import android.os.Bundle;
 import android.os.PersistableBundle;
 import android.support.annotation.LayoutRes;
 import android.support.annotation.NonNull;
-import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
 
 import hu.paprikapp.smack.soup.util.EasyBundle;
 
 /**
  * @author Balazs Varga
  */
-public class SmackActivity extends ActionBarActivity {
+public class SmackActivity extends AppCompatActivity {
 
     public static <T extends SmackActivity> Intent makeIntent(@NonNull Context context, @LayoutRes int layoutId, @NonNull Class<T> activityClass) {
         Intent intent = new Intent(context, activityClass);

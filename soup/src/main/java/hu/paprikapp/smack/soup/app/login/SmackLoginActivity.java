@@ -15,10 +15,6 @@
  */
 package hu.paprikapp.smack.soup.app.login;
 
-import android.os.Bundle;
-import android.support.v4.app.Fragment;
-
-import hu.paprikapp.smack.soup.R;
 import hu.paprikapp.smack.soup.app.SmackFragmentActivity;
 
 /**
