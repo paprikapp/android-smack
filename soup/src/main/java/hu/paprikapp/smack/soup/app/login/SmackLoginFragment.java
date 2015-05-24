@@ -12,7 +12,6 @@ import android.widget.Button;
 
 import hu.paprikapp.smack.soup.R;
 import hu.paprikapp.smack.soup.app.tools.FragmentBuilder;
-import hu.paprikapp.smack.soup.app.tools.FragmentCreator;
 import hu.paprikapp.smack.soup.app.SmackFragment;
 import hu.paprikapp.smack.soup.app.login.strategy.LoginStrategy;
 import hu.paprikapp.smack.soup.app.login.strategy.LoginStrategyFactory;

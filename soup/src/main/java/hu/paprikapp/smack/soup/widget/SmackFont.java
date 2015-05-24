@@ -38,7 +38,6 @@ import hu.paprikapp.smack.soup.R;
  */
 public class SmackFont {
 
-    // TODO custom font extensions.
     private static final String FONT_EXTENSION = "ttf";
     /**
      * Map for fewer typeface allocation.

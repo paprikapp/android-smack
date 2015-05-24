@@ -15,7 +15,6 @@ public class LoginStrategyFactory {
 
     public static LoginStrategyFactory getDefaultFactory() {
         if (mDefaultFactory == null) {
-            // TODO Is it necessary? Always check the default factory configuration.
             throw new RuntimeException("The default factory did not be configured.");
         }
         return mDefaultFactory;
