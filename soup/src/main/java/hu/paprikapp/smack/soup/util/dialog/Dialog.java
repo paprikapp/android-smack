@@ -13,6 +13,7 @@ public class Dialog {
     private static final String TAG_DIALOG = "TAG_DIALOG";
 
     private Dialog() {
+        throw new UnsupportedOperationException("No instances.");
     }
 
     public static void showNeedInternetDialog(@NonNull final Activity activity) {

@@ -74,7 +74,6 @@ public class SmackFont {
     }
 
     /**
-     *
      * @param resId
      */
     public void set(@StringRes int resId) {
@@ -84,20 +83,21 @@ public class SmackFont {
     /**
      * @param attrs
      */
-    protected void trySetFromAttrs(@Nullable AttributeSet attrs) {
-        if (attrs != null)
-            setFromAttrs(attrs);
+    protected void trySetFromAttrs(@Nullable AttributeSet attrs, int defStyleAttr, int defStyleRes) {
+        if (attrs != null) {
+            setFromAttrs(attrs, defStyleAttr, defStyleRes);
+        }
     }
 
     /**
      * @param attrs
      */
-    protected void setFromAttrs(@NonNull AttributeSet attrs) {
+    protected void setFromAttrs(@NonNull AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         if (mView.isInEditMode())
             return;
 
         TypedArray typedArray = getContext()
-                .obtainStyledAttributes(attrs, R.styleable.SmackView, 0, 0);
+                .obtainStyledAttributes(attrs, R.styleable.SmackView, defStyleAttr, defStyleRes);
 
         try {
             String fontFamily = typedArray.getString(R.styleable.SmackView_font);
@@ -121,7 +121,7 @@ public class SmackFont {
     private static void setTypeface(@NonNull TextView textView, @NonNull Typeface typeface) {
         textView.setTypeface(typeface);
         //For making the font anti-aliased.
-         textView.setPaintFlags(textView.getPaintFlags() | Paint.SUBPIXEL_TEXT_FLAG);
+        textView.setPaintFlags(textView.getPaintFlags() | Paint.SUBPIXEL_TEXT_FLAG);
     }
 
     private static void setTypeface(@NonNull ViewGroup viewGroup, @NonNull Typeface typeface) {

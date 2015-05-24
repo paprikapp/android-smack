@@ -14,6 +14,7 @@ import hu.paprikapp.smack.soup.R;
  */
 class DialogUtil {
     private DialogUtil() {
+        throw new UnsupportedOperationException("No instances.");
     }
 
     public static AlertDialog createNeedInternetDialog(@NonNull final Activity activity) {

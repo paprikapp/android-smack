@@ -11,7 +11,9 @@ public final class DisplayMetricsUtils {
 
     private static DisplayMetrics mDisplayMetrics;
 
-    private DisplayMetricsUtils() {}
+    private DisplayMetricsUtils() {
+        throw new UnsupportedOperationException("No instances.");
+    }
 
     public static void init(@NonNull Context context) {
         mDisplayMetrics = context.getResources().getDisplayMetrics();

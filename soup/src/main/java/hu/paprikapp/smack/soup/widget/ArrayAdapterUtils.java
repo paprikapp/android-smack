@@ -13,7 +13,9 @@ import java.util.Collection;
  */
 public final class ArrayAdapterUtils {
 
-    private ArrayAdapterUtils() {}
+    private ArrayAdapterUtils() {
+        throw new UnsupportedOperationException("No instances.");
+    }
 
     @TargetApi(Build.VERSION_CODES.HONEYCOMB)
     public static <T> void addAll(@NonNull ArrayAdapter<T> adapter, @Nullable Collection<T> items) {

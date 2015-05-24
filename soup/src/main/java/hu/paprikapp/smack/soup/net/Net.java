@@ -10,13 +10,14 @@ import android.support.annotation.NonNull;
  */
 public final class Net {
 
-    private static ConnectivityManager connectivityManager;
+    private static ConnectivityManager mConnectivityManager;
 
     private Net() {
+        throw new UnsupportedOperationException("No instances.");
     }
 
     public static void init(@NonNull Context context) {
-        connectivityManager = (ConnectivityManager)context.getSystemService(Context.CONNECTIVITY_SERVICE);
+        mConnectivityManager = (ConnectivityManager)context.getSystemService(Context.CONNECTIVITY_SERVICE);
     }
 
     public static boolean isNotConnected() {
@@ -24,7 +25,7 @@ public final class Net {
     }
 
     public static boolean isConnected() {
-        NetworkInfo activeNetwork = connectivityManager.getActiveNetworkInfo();
+        NetworkInfo activeNetwork = mConnectivityManager.getActiveNetworkInfo();
         return activeNetwork != null &&
                 activeNetwork.isConnected();
     }

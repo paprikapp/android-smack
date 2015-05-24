@@ -7,6 +7,7 @@ import android.os.Bundle;
  */
 public class EasyBundle {
     private EasyBundle() {
+        throw new UnsupportedOperationException("No instances.");
     }
 
     public static int getInt(String key, Bundle... args) {

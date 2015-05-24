@@ -7,5 +7,5 @@ import java.io.Serializable;
  */
 public interface ScreenId extends Serializable {
 
-    public String value();
+    String value();
 }

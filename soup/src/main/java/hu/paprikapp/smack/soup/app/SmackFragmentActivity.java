@@ -16,13 +16,13 @@ public class SmackFragmentActivity extends SmackActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        // TODO bad logic. layoutId has activity, not the fragment.
+        // TODO bad logic. mLayoutId has activity, not the fragment.
         setContentView(R.layout.activity_smack_fragment);
 
         Fragment fragment = getSupportFragmentManager().findFragmentByTag(TAG_FRAGMENT);
 
         if (fragment == null) {
-            fragment = SmackLoginFragment.newInstance(this, layoutId);
+            fragment = SmackLoginFragment.newInstance(this, mLayoutId);
             getSupportFragmentManager()
                     .beginTransaction()
                     .replace(R.id.smack_fragment_container, fragment, TAG_FRAGMENT)

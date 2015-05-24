@@ -14,13 +14,13 @@ import hu.paprikapp.smack.soup.util.EasyBundle;
  */
 public class SmackFragment extends Fragment {
 
-    private int layoutId;
+    private int mLayoutId;
 
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        layoutId = EasyBundle.getInt(Args.LAYOUT_ID, Args.INVALID_LAYOUT_ID, savedInstanceState, getArguments());
-        if (layoutId != Args.INVALID_LAYOUT_ID) {
-            return inflater.inflate(layoutId, container, false);
+        mLayoutId = EasyBundle.getInt(Args.LAYOUT_ID, Args.INVALID_LAYOUT_ID, savedInstanceState, getArguments());
+        if (mLayoutId != Args.INVALID_LAYOUT_ID) {
+            return inflater.inflate(mLayoutId, container, false);
         } else {
             return super.onCreateView(inflater, container, savedInstanceState);
         }
@@ -29,7 +29,7 @@ public class SmackFragment extends Fragment {
     @Override
     public void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
-        outState.putInt(Args.LAYOUT_ID, layoutId);
+        outState.putInt(Args.LAYOUT_ID, mLayoutId);
     }
 
     public void startLoading() {

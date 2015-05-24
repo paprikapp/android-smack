@@ -10,7 +10,7 @@ import hu.paprikapp.smack.soup.app.login.SmackUser;
  */
 public interface LoginStrategy {
 
-    public static interface LoginStrategyCallback {
+    interface LoginStrategyCallback {
         void done(SmackUser user, Exception e);
     }
 

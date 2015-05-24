@@ -15,7 +15,9 @@
  */
 package hu.paprikapp.smack.soup.widget;
 
+import android.annotation.TargetApi;
 import android.content.Context;
+import android.os.Build;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
@@ -28,20 +30,26 @@ public class SmackTextView extends TextView {
 
     public SmackTextView(@NonNull Context context) {
         super(context);
-        init(context, null, -1);
+        init(context, null, 0, 0);
     }
 
     public SmackTextView(@NonNull Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
-        init(context, attrs, -1);
+        init(context, attrs, 0, 0);
     }
 
-    public SmackTextView(@NonNull Context context, @Nullable AttributeSet attrs, int defStyle) {
-        super(context, attrs, defStyle);
-        init(context, attrs, defStyle);
+    public SmackTextView(@NonNull Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
+        super(context, attrs, defStyleAttr);
+        init(context, attrs, defStyleAttr, 0);
     }
 
-    private void init(@NonNull Context context, @Nullable AttributeSet attrs, int defStyle) {
-        SmackFont.in(this).trySetFromAttrs(attrs);
+    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
+    public SmackTextView(@NonNull Context context, @Nullable AttributeSet attrs, int defStyleAttr, int defStyleRes) {
+        super(context, attrs, defStyleAttr, defStyleRes);
+        init(context, attrs, defStyleAttr, defStyleRes);
+    }
+
+    private void init(@NonNull Context context, @Nullable AttributeSet attrs, int defStyleAttr, int defStyleRes) {
+        SmackFont.in(this).trySetFromAttrs(attrs, defStyleAttr, defStyleRes);
     }
 }

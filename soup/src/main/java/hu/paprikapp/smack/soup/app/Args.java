@@ -9,5 +9,6 @@ public class Args {
     public static final int INVALID_LAYOUT_ID = -1;
 
     private Args() {
+        throw new UnsupportedOperationException("No instances.");
     }
 }

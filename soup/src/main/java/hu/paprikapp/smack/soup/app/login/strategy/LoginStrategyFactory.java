@@ -10,36 +10,35 @@ import java.util.Map;
  */
 public class LoginStrategyFactory {
 
-    private static LoginStrategyFactory defaultFactory;
-    private final HashMap<LoginStrategyId, LoginStrategy> registry = new HashMap<>();
+    private static LoginStrategyFactory mDefaultFactory;
+    private final HashMap<LoginStrategyId, LoginStrategy> mRegistry = new HashMap<>();
 
     public static LoginStrategyFactory getDefaultFactory() {
-        if (defaultFactory == null) {
+        if (mDefaultFactory == null) {
             // TODO Is it necessary? Always check the default factory configuration.
             throw new RuntimeException("The default factory did not be configured.");
         }
-        return defaultFactory;
+        return mDefaultFactory;
     }
 
-    public static void setDefaultFactory(@NonNull LoginStrategyFactory factory) {
-        defaultFactory = factory;
+    public static void setDefaultFactory(@NonNull LoginStrategyFactory loginStrategyFactory) {
+        mDefaultFactory = loginStrategyFactory;
     }
 
-    public final LoginStrategy strategyById(LoginStrategyId strategyId)
-    {
+    public final LoginStrategy strategyById(@NonNull LoginStrategyId loginStrategyId) {
         Map<LoginStrategyId, LoginStrategy> registry = all();
 
-        if (!registry.containsKey(strategyId)) {
-            throw new RuntimeException(String.format("Strategy is not registered: %s", strategyId));
+        if (!registry.containsKey(loginStrategyId)) {
+            throw new RuntimeException(String.format("Strategy is not registered: %s", loginStrategyId));
         }
-        return registry.get(strategyId);
+        return registry.get(loginStrategyId);
     }
 
     public final Map<LoginStrategyId, LoginStrategy> all() {
-        return registry;
+        return mRegistry;
     }
 
-    public final void registerStrategy(LoginStrategyId id, LoginStrategy strategy) {
-        registry.put(id, strategy);
+    public final void registerStrategy(@NonNull LoginStrategyId loginStrategyId, @NonNull LoginStrategy loginStrategy) {
+        mRegistry.put(loginStrategyId, loginStrategy);
     }
 }

@@ -10,22 +10,22 @@ import android.util.AttributeSet;
  * @author Balazs Varga
  */
 public class SmackSearchView extends SearchView {
-    public SmackSearchView(Context context) {
+    public SmackSearchView(@NonNull Context context) {
         super(context);
-        init(context, null, -1);
+        init(context, null, 0);
     }
 
-    public SmackSearchView(Context context, AttributeSet attrs) {
+    public SmackSearchView(@NonNull Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
-        init(context, attrs, -1);
+        init(context, attrs, 0);
     }
 
-    public SmackSearchView(Context context, AttributeSet attrs, int defStyleAttr) {
+    public SmackSearchView(@NonNull Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         init(context, attrs, defStyleAttr);
     }
 
-    private void init(@NonNull Context context, @Nullable AttributeSet attrs, int defStyle) {
-        SmackFont.in(this).trySetFromAttrs(attrs);
+    private void init(@NonNull Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
+        SmackFont.in(this).trySetFromAttrs(attrs, defStyleAttr, 0);
     }
 }

@@ -26,10 +26,10 @@ public class ParseFacebookLoginStrategy implements LoginStrategy {
 
     @Override
     public final void login(Fragment fragment, SmackUser user, final LoginStrategyCallback callback) {
-       ParseFacebookUtils.logInWithReadPermissionsInBackground(fragment, getPermissions(), new LogInCallback() {
+        ParseFacebookUtils.logInWithReadPermissionsInBackground(fragment, getPermissions(), new LogInCallback() {
             @Override
             public void done(ParseUser parseUser, ParseException e) {
-                safeCall(callback, (SmackUser)parseUser, e);
+                safeCall(callback, (SmackUser) parseUser, e);
             }
         });
     }

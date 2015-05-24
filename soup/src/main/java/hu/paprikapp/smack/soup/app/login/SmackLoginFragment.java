@@ -26,7 +26,7 @@ import hu.paprikapp.smack.soup.app.login.strategy.LoginStrategyId;
  */
 public class SmackLoginFragment extends SmackFragment implements SmackLoginCallback {
 
-    private SmackLoginCallback loginCallback;
+    private SmackLoginCallback mLoginCallback;
 
     /**
      * Makes a new SmackLoginFragment instance.
@@ -43,13 +43,13 @@ public class SmackLoginFragment extends SmackFragment implements SmackLoginCallb
         super.onAttach(activity);
 
         if (activity instanceof SmackLoginCallback) {
-            loginCallback = (SmackLoginCallback)activity;
+            mLoginCallback = (SmackLoginCallback)activity;
         }
     }
 
     @Override
     public void onDetach() {
-        loginCallback = null;
+        mLoginCallback = null;
         super.onDetach();
     }
 
@@ -92,22 +92,22 @@ public class SmackLoginFragment extends SmackFragment implements SmackLoginCallb
 
     @Override
     public void success(SmackUser user) {
-        if (loginCallback != null) {
-            loginCallback.success(user);
+        if (mLoginCallback != null) {
+            mLoginCallback.success(user);
         }
     }
 
     @Override
     public void failed(Exception error) {
-        if (loginCallback != null) {
-            loginCallback.failed(error);
+        if (mLoginCallback != null) {
+            mLoginCallback.failed(error);
         }
     }
 
     @Override
     public void canceled() {
-        if (loginCallback != null) {
-            loginCallback.canceled();
+        if (mLoginCallback != null) {
+            mLoginCallback.canceled();
         }
     }
 }

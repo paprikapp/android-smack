@@ -26,7 +26,7 @@ public abstract class SmackSplashActivity extends Activity {
 
     private static final double DEFAULT_SPLASH_DELAY_MS = 2.5 * 1000;
 
-    protected int minDisplayMs = (int) DEFAULT_SPLASH_DELAY_MS;
+    protected int mMinDisplayMs = (int) DEFAULT_SPLASH_DELAY_MS;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,9 +41,9 @@ public abstract class SmackSplashActivity extends Activity {
 
                 // Make sure we display splash for MIN_DISPLAY_MS
                 final long duration = System.currentTimeMillis() - start;
-                if (duration < minDisplayMs) {
+                if (duration < mMinDisplayMs) {
                     try {
-                        Thread.sleep(minDisplayMs - duration);
+                        Thread.sleep(mMinDisplayMs - duration);
                     } catch (InterruptedException e) {
                         Thread.interrupted();
                     }

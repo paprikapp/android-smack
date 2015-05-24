@@ -22,18 +22,18 @@ public class SmackActivity extends AppCompatActivity {
     }
 
     @LayoutRes
-    protected int layoutId;
+    protected int mLayoutId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        layoutId = EasyBundle.getInt(Args.LAYOUT_ID, Args.INVALID_LAYOUT_ID, savedInstanceState, getIntent().getExtras());
+        mLayoutId = EasyBundle.getInt(Args.LAYOUT_ID, Args.INVALID_LAYOUT_ID, savedInstanceState, getIntent().getExtras());
     }
 
     @Override
     public void onSaveInstanceState(Bundle outState, PersistableBundle outPersistentState) {
         super.onSaveInstanceState(outState, outPersistentState);
-        outState.putInt(Args.LAYOUT_ID, layoutId);
+        outState.putInt(Args.LAYOUT_ID, mLayoutId);
     }
 
     public void startLoading() {
