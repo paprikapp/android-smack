@@ -20,8 +20,9 @@ import hu.paprikapp.smack.soup.app.login.strategy.LoginStrategyId;
 /**
  * Custom fragment for some login methods.
  * Currently supported:
- *  - Facebook authentication:
- *      Requirements: need put a Button with R.string.smack_facebook_button identifier to custom login layout.
+ * - Facebook authentication:
+ * Requirements: need put a Button with R.string.smack_facebook_button identifier to custom login layout.
+ *
  * @author Balazs Varga
  */
 public class SmackLoginFragment extends SmackFragment implements SmackLoginCallback {
@@ -30,7 +31,8 @@ public class SmackLoginFragment extends SmackFragment implements SmackLoginCallb
 
     /**
      * Makes a new SmackLoginFragment instance.
-     * @param context Context for create new instance.
+     *
+     * @param context  Context for create new instance.
      * @param layoutId Custom layout id for login screen.
      * @return
      */
@@ -43,7 +45,7 @@ public class SmackLoginFragment extends SmackFragment implements SmackLoginCallb
         super.onAttach(activity);
 
         if (activity instanceof SmackLoginCallback) {
-            mLoginCallback = (SmackLoginCallback)activity;
+            mLoginCallback = (SmackLoginCallback) activity;
         }
     }
 
@@ -67,10 +69,11 @@ public class SmackLoginFragment extends SmackFragment implements SmackLoginCallb
 
     /**
      * Finds the facebook button. if its available on layout, will configure with on click listener, which attempts the facebook authentication after click.
+     *
      * @param view The content view, need for find the facebook button in layout.
      */
     private void configureFbButton(@NonNull View view) {
-        Button fbLoginButton = (Button)view.findViewById(R.id.smack_facebook_button);
+        Button fbLoginButton = (Button) view.findViewById(R.id.smack_facebook_button);
 
         if (fbLoginButton != null) {
             fbLoginButton.setOnClickListener(new SmackLoginButtonClickListener(this, LoginStrategyId.Ids.FACEBOOK));
@@ -79,6 +82,7 @@ public class SmackLoginFragment extends SmackFragment implements SmackLoginCallb
 
     /**
      * Handle activity results on all attached LoginStrategy.
+     *
      * @param requestCode
      * @param resultCode
      * @param data

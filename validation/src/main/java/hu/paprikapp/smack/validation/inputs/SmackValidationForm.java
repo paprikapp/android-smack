@@ -21,7 +21,7 @@ import java.util.List;
 /**
  * @author Balazs Varga
  */
-public class SmackValidationForm  {
+public class SmackValidationForm {
 
     public static enum ValidationType {
         StopOnFirstError,

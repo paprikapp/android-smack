@@ -57,11 +57,9 @@ public abstract class SmackSplashActivity extends Activity {
     }
 
     /**
-     *
      * @param app
      */
-    protected void doStuffInBackground(Application app)
-    {
+    protected void doStuffInBackground(Application app) {
         // Hook
     }
 

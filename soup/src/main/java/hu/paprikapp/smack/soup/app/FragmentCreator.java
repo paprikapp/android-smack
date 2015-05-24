@@ -14,6 +14,6 @@ public class FragmentCreator {
     public static <T extends Fragment> T create(@NonNull Context context, @NonNull Class<T> fragmentClass, @LayoutRes int layoutId) {
         Bundle args = new Bundle();
         args.putInt(Args.LAYOUT_ID, layoutId);
-        return (T)Fragment.instantiate(context, fragmentClass.getName(), args);
+        return (T) Fragment.instantiate(context, fragmentClass.getName(), args);
     }
 }

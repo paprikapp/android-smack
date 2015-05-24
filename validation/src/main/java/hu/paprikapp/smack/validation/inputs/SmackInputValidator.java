@@ -25,9 +25,12 @@ import hu.paprikapp.smack.validation.SmackValidator;
 public interface SmackInputValidator {
 
     void addValidator(SmackValidator validator);
+
     List<SmackValidator> validators();
+
     boolean validate();
 
     void showError(String message);
+
     void hideError();
 }

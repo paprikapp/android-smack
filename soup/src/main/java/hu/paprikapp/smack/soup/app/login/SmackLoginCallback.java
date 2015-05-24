@@ -5,6 +5,8 @@ package hu.paprikapp.smack.soup.app.login;
  */
 public interface SmackLoginCallback {
     void success(SmackUser user);
+
     void failed(Exception error);
+
     void canceled();
 }

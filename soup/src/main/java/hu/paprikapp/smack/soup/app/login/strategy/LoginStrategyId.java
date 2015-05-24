@@ -20,7 +20,7 @@ public class LoginStrategyId {
     @Override
     public boolean equals(Object o) {
         if (o instanceof LoginStrategyId) {
-            LoginStrategyId strategyId = (LoginStrategyId)o;
+            LoginStrategyId strategyId = (LoginStrategyId) o;
             return TextUtils.equals(this.value(), strategyId.value());
         }
         return false;

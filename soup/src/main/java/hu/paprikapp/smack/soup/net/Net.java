@@ -17,7 +17,7 @@ public final class Net {
     }
 
     public static void init(@NonNull Context context) {
-        mConnectivityManager = (ConnectivityManager)context.getSystemService(Context.CONNECTIVITY_SERVICE);
+        mConnectivityManager = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
     }
 
     public static boolean isNotConnected() {

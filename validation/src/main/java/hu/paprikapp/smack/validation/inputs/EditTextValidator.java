@@ -23,7 +23,7 @@ import android.widget.EditText;
 /**
  * @author Balazs Varga
  */
-public class EditTextValidator  extends SmackAbstractInputValidator implements TextWatcher {
+public class EditTextValidator extends SmackAbstractInputValidator implements TextWatcher {
 
     private EditText mEditText;
 
