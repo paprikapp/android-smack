@@ -8,7 +8,7 @@ import hu.paprikapp.smack.soup.app.login.strategy.LoginStrategyFactory;
 import hu.paprikapp.smack.soup.app.login.strategy.LoginStrategyId;
 import hu.paprikapp.smack.soup.app.login.strategy.SimpleLoginStrategyCallback;
 import hu.paprikapp.smack.soup.net.Net;
-import hu.paprikapp.smack.soup.util.dialog.Dialog;
+import hu.paprikapp.smack.soup.util.dialog.SmackDialog;
 
 /**
  * @author Balazs Varga
@@ -24,7 +24,7 @@ class DefaultLoginDispatcher implements LoginDispatcher {
     @Override
     public void dispatch(Fragment fragment, SmackUser user) {
         if (Net.isNotConnected()) {
-            Dialog.showNeedInternetDialogFragment(fragment.getChildFragmentManager());
+            SmackDialog.showNeedInternetDialogFragment(fragment.getChildFragmentManager());
         } else {
             LoginStrategyFactory factory = LoginStrategyFactory.getDefaultFactory();
             LoginStrategy strategy = factory.strategyById(mLoginStrategyId);

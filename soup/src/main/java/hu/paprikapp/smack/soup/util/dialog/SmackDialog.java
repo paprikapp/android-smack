@@ -8,11 +8,11 @@ import android.support.v4.app.FragmentManager;
 /**
  * @author Balazs Varga
  */
-public class Dialog {
+public class SmackDialog {
 
     private static final String TAG_DIALOG = "TAG_DIALOG";
 
-    private Dialog() {
+    private SmackDialog() {
         throw new UnsupportedOperationException("No instances.");
     }
 

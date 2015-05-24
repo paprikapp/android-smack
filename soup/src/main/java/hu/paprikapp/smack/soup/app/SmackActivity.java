@@ -23,17 +23,21 @@ public class SmackActivity extends AppCompatActivity {
 
     @LayoutRes
     protected int mLayoutId;
+    @LayoutRes
+    protected int mProgressLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mLayoutId = EasyBundle.getInt(Args.LAYOUT_ID, Args.INVALID_LAYOUT_ID, savedInstanceState, getIntent().getExtras());
+        mProgressLayout = EasyBundle.getInt(Args.PROGRESS_LAYOUT_ID, Args.INVALID_LAYOUT_ID, savedInstanceState, getIntent().getExtras());
     }
 
     @Override
-    public void onSaveInstanceState(Bundle outState, PersistableBundle outPersistentState) {
-        super.onSaveInstanceState(outState, outPersistentState);
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
         outState.putInt(Args.LAYOUT_ID, mLayoutId);
+        outState.putInt(Args.PROGRESS_LAYOUT_ID, mProgressLayout);
     }
 
     public void startLoading() {

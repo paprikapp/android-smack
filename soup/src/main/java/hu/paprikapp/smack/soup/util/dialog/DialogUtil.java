@@ -1,10 +1,10 @@
 package hu.paprikapp.smack.soup.util.dialog;
 
-import android.app.Activity;
-import android.app.AlertDialog;
+import android.app.*;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.provider.Settings;
+import android.support.annotation.LayoutRes;
 import android.support.annotation.NonNull;
 
 import hu.paprikapp.smack.soup.R;
@@ -17,7 +17,7 @@ class DialogUtil {
         throw new UnsupportedOperationException("No instances.");
     }
 
-    public static AlertDialog createNeedInternetDialog(@NonNull final Activity activity) {
+    public static Dialog createNeedInternetDialog(@NonNull final Activity activity) {
         return new AlertDialog.Builder(activity)
                 .setMessage(R.string.need_internet_connection_dialog_title)
                 .setNegativeButton(R.string.need_internet_connection_dialog_negative_button, new DialogInterface.OnClickListener() {

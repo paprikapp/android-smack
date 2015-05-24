@@ -11,7 +11,8 @@ import android.view.View;
 import android.widget.Button;
 
 import hu.paprikapp.smack.soup.R;
-import hu.paprikapp.smack.soup.app.FragmentCreator;
+import hu.paprikapp.smack.soup.app.tools.FragmentBuilder;
+import hu.paprikapp.smack.soup.app.tools.FragmentCreator;
 import hu.paprikapp.smack.soup.app.SmackFragment;
 import hu.paprikapp.smack.soup.app.login.strategy.LoginStrategy;
 import hu.paprikapp.smack.soup.app.login.strategy.LoginStrategyFactory;
@@ -21,12 +22,13 @@ import hu.paprikapp.smack.soup.app.login.strategy.LoginStrategyId;
  * Custom fragment for some login methods.
  * Currently supported:
  * - Facebook authentication:
- *      - Requirements: need put a Button with R.string.smack_facebook_button identifier to custom login layout.
+ * - Requirements: need put a Button with R.string.smack_facebook_button identifier to custom login layout.
  *
  * @author Balazs Varga
  */
 public class SmackLoginFragment extends SmackFragment implements SmackLoginCallback {
 
+    @Nullable
     private SmackLoginCallback mLoginCallback;
 
     /**
@@ -37,7 +39,9 @@ public class SmackLoginFragment extends SmackFragment implements SmackLoginCallb
      * @return
      */
     public static SmackLoginFragment newInstance(@NonNull Context context, @LayoutRes int layoutId) {
-        return FragmentCreator.create(context, SmackLoginFragment.class, layoutId);
+        return FragmentBuilder.newFragment(context, SmackLoginFragment.class)
+                .withLayout(layoutId)
+                .create();
     }
 
     @Override
@@ -58,7 +62,7 @@ public class SmackLoginFragment extends SmackFragment implements SmackLoginCallb
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        configureFbButton(view);
+        setupFacebookButton(view);
     }
 
     @Override
@@ -72,7 +76,7 @@ public class SmackLoginFragment extends SmackFragment implements SmackLoginCallb
      *
      * @param view The content view, need for find the facebook button in layout.
      */
-    private void configureFbButton(@NonNull View view) {
+    private void setupFacebookButton(@NonNull View view) {
         Button fbLoginButton = (Button) view.findViewById(R.id.smack_facebook_button);
 
         if (fbLoginButton != null) {

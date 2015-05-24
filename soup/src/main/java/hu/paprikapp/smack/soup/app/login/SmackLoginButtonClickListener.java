@@ -23,6 +23,7 @@ class SmackLoginButtonClickListener implements View.OnClickListener {
     @Override
     public void onClick(View v) {
         SmackFragment fragment = mWeakFragment.get();
+        fragment.startLoading();
         LoginDispatcher dispatcher = new DefaultLoginDispatcher(mLoginStrategyId);
         // TODO need an unregistered user instance for second parameter.
         dispatcher.dispatch(fragment, null);
