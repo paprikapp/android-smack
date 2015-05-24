@@ -6,8 +6,6 @@ import android.view.View;
 import java.lang.ref.WeakReference;
 
 import hu.paprikapp.smack.soup.app.SmackFragment;
-import hu.paprikapp.smack.soup.app.login.dispatcher.DefaultLoginDispatcher;
-import hu.paprikapp.smack.soup.app.login.dispatcher.LoginDispatcher;
 import hu.paprikapp.smack.soup.app.login.strategy.LoginStrategyId;
 
 /**

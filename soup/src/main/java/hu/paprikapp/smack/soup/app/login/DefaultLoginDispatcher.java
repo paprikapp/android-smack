@@ -1,10 +1,8 @@
-package hu.paprikapp.smack.soup.app.login.dispatcher;
+package hu.paprikapp.smack.soup.app.login;
 
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 
-import hu.paprikapp.smack.soup.app.login.SmackLoginCallback;
-import hu.paprikapp.smack.soup.app.login.SmackUser;
 import hu.paprikapp.smack.soup.app.login.strategy.LoginStrategy;
 import hu.paprikapp.smack.soup.app.login.strategy.LoginStrategyFactory;
 import hu.paprikapp.smack.soup.app.login.strategy.LoginStrategyId;
@@ -15,7 +13,7 @@ import hu.paprikapp.smack.soup.util.dialog.Dialog;
 /**
  * @author Balazs Varga
  */
-public class DefaultLoginDispatcher implements LoginDispatcher {
+class DefaultLoginDispatcher implements LoginDispatcher {
 
     private final LoginStrategyId mLoginStrategyId;
 

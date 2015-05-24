@@ -21,7 +21,7 @@ import hu.paprikapp.smack.soup.app.login.strategy.LoginStrategyId;
  * Custom fragment for some login methods.
  * Currently supported:
  * - Facebook authentication:
- * Requirements: need put a Button with R.string.smack_facebook_button identifier to custom login layout.
+ *      - Requirements: need put a Button with R.string.smack_facebook_button identifier to custom login layout.
  *
  * @author Balazs Varga
  */
