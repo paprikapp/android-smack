@@ -4,7 +4,7 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 
 import hu.paprikapp.smack.soup.R;
-import hu.paprikapp.smack.soup.app.login.SmackLoginFragment;
+import hu.paprikapp.smack.soup.app.config.FragmentActivityConfig;
 import hu.paprikapp.smack.soup.app.tools.FragmentBuilder;
 
 /**
@@ -19,16 +19,15 @@ public class SmackFragmentActivity extends SmackActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        // TODO bad logic. mLayoutId has activity, not the mFragment.
-        setContentView(R.layout.activity_smack_fragment);
 
         mFragment = getSupportFragmentManager().findFragmentByTag(TAG_FRAGMENT);
 
-        if (mFragment == null) {
+        if (mFragment == null && (mScreenConfig instanceof FragmentActivityConfig)) {
+            FragmentActivityConfig config = (FragmentActivityConfig) mScreenConfig;
+
             // TODO remove hardcoded login fragment.
-            mFragment = FragmentBuilder.newFragment(this, SmackLoginFragment.class)
-                    .withLayout(mLayoutId)
-                    .withProgressLayout(mProgressLayout)
+            mFragment = FragmentBuilder.newFragment(this, config.getFragmentClass())
+                    .withFragmentConfig(config.getFragmentConfig())
                     .create();
 
             getSupportFragmentManager()

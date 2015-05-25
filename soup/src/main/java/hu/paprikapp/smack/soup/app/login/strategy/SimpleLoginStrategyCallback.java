@@ -17,6 +17,13 @@ public class SimpleLoginStrategyCallback implements LoginStrategy.LoginStrategyC
     }
 
     @Override
+    public void start() {
+        if (mLoginCallback != null) {
+            mLoginCallback.start();
+        }
+    }
+
+    @Override
     public void done(SmackUser user, Exception e) {
         if (mLoginCallback != null) {
             if (e == null) {

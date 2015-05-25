@@ -7,6 +7,7 @@ import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 
 import hu.paprikapp.smack.soup.app.Args;
+import hu.paprikapp.smack.soup.app.config.FragmentConfig;
 
 /**
  * @author Balazs Varga
@@ -15,10 +16,10 @@ public class FragmentBuilder<T extends Fragment> {
 
     private Context mContext;
     private Class<T> mFragmentClass;
-    private int mLayoutRes;
-    private int mProgressLayoutRes;
+    private FragmentConfig mFragmentConfig;
 
     private FragmentBuilder(@NonNull Context context, @NonNull Class<T> fragmentClass) {
+        clean();
         mContext = context;
         mFragmentClass = fragmentClass;
     }
@@ -28,29 +29,33 @@ public class FragmentBuilder<T extends Fragment> {
     }
 
     public FragmentBuilder<T> withLayout(@LayoutRes final int layoutRes) {
-        mLayoutRes = layoutRes;
+        mFragmentConfig.setLayoutRes(layoutRes);
         return this;
     }
 
     public FragmentBuilder<T> withProgressLayout(@LayoutRes final int progressLayoutRes) {
-        mProgressLayoutRes = progressLayoutRes;
+        mFragmentConfig.setProgressLayoutRes(progressLayoutRes);
+        return this;
+    }
+
+    public FragmentBuilder<T> withFragmentConfig(@NonNull final FragmentConfig fragmentConfig) {
+        mFragmentConfig = fragmentConfig;
         return this;
     }
 
     @SuppressWarnings("unchecked")
     public T create() {
-        Bundle args = new Bundle();
-        args.putInt(Args.LAYOUT_ID, mLayoutRes);
-        args.putInt(Args.PROGRESS_LAYOUT_ID, mProgressLayoutRes);
+
+        final Bundle args = new Bundle();
+        args.putParcelable(Args.SCREEN_CONFIG, mFragmentConfig);
         T instance = (T) Fragment.instantiate(mContext, mFragmentClass.getName(), args);
-        destroy();
+        clean();
         return instance;
     }
 
-    private void destroy() {
+    private void clean() {
         mContext = null;
         mFragmentClass = null;
-        mLayoutRes = 0;
-        mProgressLayoutRes = 0;
+        mFragmentConfig = new FragmentConfig();
     }
 }

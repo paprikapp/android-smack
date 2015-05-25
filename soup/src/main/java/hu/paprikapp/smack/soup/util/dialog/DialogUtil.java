@@ -1,10 +1,11 @@
 package hu.paprikapp.smack.soup.util.dialog;
 
-import android.app.*;
+import android.app.Activity;
+import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.provider.Settings;
-import android.support.annotation.LayoutRes;
 import android.support.annotation.NonNull;
 
 import hu.paprikapp.smack.soup.R;

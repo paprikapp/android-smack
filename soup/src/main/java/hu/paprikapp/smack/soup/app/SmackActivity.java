@@ -1,50 +1,60 @@
 package hu.paprikapp.smack.soup.app;
 
-import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
-import android.os.PersistableBundle;
-import android.support.annotation.LayoutRes;
-import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 
+import hu.paprikapp.smack.soup.R;
+import hu.paprikapp.smack.soup.app.config.ScreenConfig;
 import hu.paprikapp.smack.soup.util.EasyBundle;
+import hu.paprikapp.smack.soup.widget.ProgressView;
 
 /**
  * @author Balazs Varga
  */
 public class SmackActivity extends AppCompatActivity {
 
-    public static <T extends SmackActivity> Intent makeIntent(@NonNull Context context, @LayoutRes int layoutId, @NonNull Class<T> activityClass) {
-        Intent intent = new Intent(context, activityClass);
-        intent.putExtra(Args.LAYOUT_ID, layoutId);
-        return intent;
-    }
+    private ProgressView mProgressView;
 
-    @LayoutRes
-    protected int mLayoutId;
-    @LayoutRes
-    protected int mProgressLayout;
+    protected ScreenConfig mScreenConfig;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mLayoutId = EasyBundle.getInt(Args.LAYOUT_ID, Args.INVALID_LAYOUT_ID, savedInstanceState, getIntent().getExtras());
-        mProgressLayout = EasyBundle.getInt(Args.PROGRESS_LAYOUT_ID, Args.INVALID_LAYOUT_ID, savedInstanceState, getIntent().getExtras());
+        mScreenConfig = EasyBundle.getParcelable(Args.SCREEN_CONFIG, savedInstanceState, getIntent().getExtras());
+
+        if (mScreenConfig != null && mScreenConfig.getLayoutRes() != Args.INVALID_LAYOUT_RES) {
+
+            if (mScreenConfig.getProgressLayoutRes() != Args.INVALID_LAYOUT_RES) {
+                setContentView(R.layout.activity_default_content_view);
+                mProgressView = (ProgressView) findViewById(R.id.smack_progress_view);
+                mProgressView.setContentView(mScreenConfig.getLayoutRes());
+                mProgressView.setProgressView(mScreenConfig.getProgressLayoutRes());
+            } else {
+                setContentView(mScreenConfig.getLayoutRes());
+            }
+        }
+    }
+
+    @Override
+    public void setContentView(int layoutResID) {
+        super.setContentView(layoutResID);
     }
 
     @Override
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
-        outState.putInt(Args.LAYOUT_ID, mLayoutId);
-        outState.putInt(Args.PROGRESS_LAYOUT_ID, mProgressLayout);
+        outState.putParcelable(Args.SCREEN_CONFIG, mScreenConfig);
     }
 
-    public void startLoading() {
-        // TODO need implement this
+    public synchronized void startLoading() {
+        if (mProgressView != null) {
+            mProgressView.startProgress();
+        }
     }
 
-    public void stopLoading() {
-        // TODO need implement this
+    public synchronized void stopLoading() {
+        if (mProgressView != null) {
+            mProgressView.stopProgress();
+        }
     }
 }

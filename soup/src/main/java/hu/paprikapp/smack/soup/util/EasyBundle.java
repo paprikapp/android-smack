@@ -1,6 +1,7 @@
 package hu.paprikapp.smack.soup.util;
 
 import android.os.Bundle;
+import android.os.Parcelable;
 
 /**
  * @author Balazs Varga
@@ -20,6 +21,17 @@ public class EasyBundle {
         for (Bundle bundle : args) {
             if (bundle != null) {
                 value = bundle.getInt(key, defaultValue);
+            }
+        }
+        return value;
+    }
+
+    public static <T extends Parcelable> T getParcelable(String key, Bundle... args) {
+        T value = null;
+
+        for (Bundle bundle : args) {
+            if (bundle != null) {
+                value = bundle.getParcelable(key);
             }
         }
         return value;

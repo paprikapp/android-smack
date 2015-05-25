@@ -5,9 +5,8 @@ package hu.paprikapp.smack.soup.app;
  */
 public class Args {
 
-    public static final String LAYOUT_ID = "LAYOUT_ID";
-    public static final String PROGRESS_LAYOUT_ID = "PROGRESS_LAYOUT_ID";
-    public static final int INVALID_LAYOUT_ID = -1;
+    public static final int INVALID_LAYOUT_RES = -1;
+    public static final String SCREEN_CONFIG = "SCREEN_CONFIG";
 
     private Args() {
         throw new UnsupportedOperationException("No instances.");

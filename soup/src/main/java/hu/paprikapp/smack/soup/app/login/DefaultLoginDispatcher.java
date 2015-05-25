@@ -29,6 +29,7 @@ class DefaultLoginDispatcher implements LoginDispatcher {
             LoginStrategyFactory factory = LoginStrategyFactory.getDefaultFactory();
             LoginStrategy strategy = factory.strategyById(mLoginStrategyId);
             SimpleLoginStrategyCallback callback = new SimpleLoginStrategyCallback(getCallback(fragment));
+            callback.start();
             strategy.login(fragment, user, callback);
         }
     }

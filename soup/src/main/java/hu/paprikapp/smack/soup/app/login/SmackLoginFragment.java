@@ -11,11 +11,11 @@ import android.view.View;
 import android.widget.Button;
 
 import hu.paprikapp.smack.soup.R;
-import hu.paprikapp.smack.soup.app.tools.FragmentBuilder;
 import hu.paprikapp.smack.soup.app.SmackFragment;
 import hu.paprikapp.smack.soup.app.login.strategy.LoginStrategy;
 import hu.paprikapp.smack.soup.app.login.strategy.LoginStrategyFactory;
 import hu.paprikapp.smack.soup.app.login.strategy.LoginStrategyId;
+import hu.paprikapp.smack.soup.app.tools.FragmentBuilder;
 
 /**
  * Custom fragment for some login methods.
@@ -94,6 +94,13 @@ public class SmackLoginFragment extends SmackFragment implements SmackLoginCallb
         LoginStrategyFactory factory = LoginStrategyFactory.getDefaultFactory();
         for (LoginStrategy strategy : factory.all().values()) {
             strategy.onActivityResult(requestCode, resultCode, data);
+        }
+    }
+
+    @Override
+    public void start() {
+        if (mLoginCallback != null) {
+            mLoginCallback.start();
         }
     }
 
