@@ -1,4 +1,4 @@
-package hu.paprikapp.smack.soup.app.config;
+package hu.paprikapp.smack.soup.app.config.ids;
 
 import android.support.annotation.NonNull;
 import android.text.TextUtils;

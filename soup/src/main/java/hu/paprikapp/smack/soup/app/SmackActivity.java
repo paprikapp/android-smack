@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
 import hu.paprikapp.smack.soup.R;
+import hu.paprikapp.smack.soup.app.config.Args;
 import hu.paprikapp.smack.soup.app.config.ScreenConfig;
 import hu.paprikapp.smack.soup.util.EasyBundle;
 import hu.paprikapp.smack.soup.widget.ProgressView;

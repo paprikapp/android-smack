@@ -7,7 +7,7 @@ import android.support.annotation.LayoutRes;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 
-import hu.paprikapp.smack.soup.app.Args;
+import hu.paprikapp.smack.soup.app.config.Args;
 import hu.paprikapp.smack.soup.app.config.AbstractScreenConfig;
 import hu.paprikapp.smack.soup.app.config.ActivityConfig;
 import hu.paprikapp.smack.soup.app.config.FragmentActivityConfig;

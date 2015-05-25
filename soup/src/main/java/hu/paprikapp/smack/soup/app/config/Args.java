@@ -1,4 +1,4 @@
-package hu.paprikapp.smack.soup.app;
+package hu.paprikapp.smack.soup.app.config;
 
 /**
  * @author Balazs Varga

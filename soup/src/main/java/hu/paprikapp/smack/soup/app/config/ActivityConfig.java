@@ -2,6 +2,9 @@ package hu.paprikapp.smack.soup.app.config;
 
 import android.os.Parcel;
 
+import hu.paprikapp.smack.soup.app.config.ids.ActivityId;
+import hu.paprikapp.smack.soup.util.EasyParcelable;
+
 /**
  * @author Balazs Varga
  */
@@ -14,15 +17,5 @@ public class ActivityConfig extends AbstractScreenConfig<ActivityId> {
         super(in);
     }
 
-    public static final Creator<ActivityConfig> CREATOR = new Creator<ActivityConfig>() {
-        @Override
-        public ActivityConfig createFromParcel(Parcel source) {
-            return new ActivityConfig(source);
-        }
-
-        @Override
-        public ActivityConfig[] newArray(int size) {
-            return new ActivityConfig[size];
-        }
-    };
+    public static final Creator<ActivityConfig> CREATOR = EasyParcelable.createCreator(ActivityConfig.class);
 }

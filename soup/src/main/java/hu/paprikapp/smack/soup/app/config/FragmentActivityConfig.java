@@ -3,6 +3,8 @@ package hu.paprikapp.smack.soup.app.config;
 import android.os.Parcel;
 import android.support.v4.app.Fragment;
 
+import hu.paprikapp.smack.soup.util.EasyParcelable;
+
 /**
  * @author Balazs Varga
  */
@@ -16,7 +18,7 @@ public class FragmentActivityConfig extends ActivityConfig {
 
     protected FragmentActivityConfig(Parcel in) {
         super(in);
-        mFragmentClass = (Class<Fragment>) in.readSerializable();
+        mFragmentClass = (Class<? extends Fragment>) in.readSerializable();
         mFragmentConfig = in.readParcelable(FragmentConfig.class.getClassLoader());
     }
 
@@ -43,15 +45,5 @@ public class FragmentActivityConfig extends ActivityConfig {
         dest.writeParcelable(mFragmentConfig, flags);
     }
 
-    public static final Creator<FragmentActivityConfig> CREATOR = new Creator<FragmentActivityConfig>() {
-        @Override
-        public FragmentActivityConfig createFromParcel(Parcel source) {
-            return new FragmentActivityConfig(source);
-        }
-
-        @Override
-        public FragmentActivityConfig[] newArray(int size) {
-            return new FragmentActivityConfig[size];
-        }
-    };
+    public static final Creator<FragmentActivityConfig> CREATOR = EasyParcelable.createCreator(FragmentActivityConfig.class);
 }

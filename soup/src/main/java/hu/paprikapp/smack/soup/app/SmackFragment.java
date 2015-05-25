@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import hu.paprikapp.smack.soup.app.config.Args;
 import hu.paprikapp.smack.soup.app.config.ScreenConfig;
 import hu.paprikapp.smack.soup.util.EasyBundle;
 import hu.paprikapp.smack.soup.widget.ProgressView;
